@@ -1,4 +1,4 @@
-const FLASK_SERVER_URL = 'http://localhost:5000';
+const FLASK_SERVER_URL = 'https://coderscave-3.onrender.com';
 
 async function searchRecipes() {
   const ingredient = document.getElementById('ingredient').value.trim();
