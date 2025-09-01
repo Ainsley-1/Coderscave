@@ -3,7 +3,7 @@ from flask_cors import CORS
 import urllib.parse
 import requests
 
-app = Flask(__name__)  # Fixed: __name__ instead of _name_
+app = Flask(name)
 CORS(app)
 
 @app.route('/generate_recipe', methods=['GET'])
@@ -15,7 +15,7 @@ def generate_recipe():
     if not recipe_name:
         return jsonify({'error': 'Missing recipe_name parameter'}), 400
 
-    prompt = f"Suggest 4 simple, low-cost, high-nutrition recipes with {recipe_name} for {region}. Ensure the total cost does not exceed ${budget}. Prioritize the cheapest available ingredients like rice, lentils, and vegetables. Provide: 1. A brief description 2. A complete list of ingredients with measurements and estimated cost per serving 3. Step-by-step cooking instructions 4. Any serving suggestions. Format with clear section headings."
+    prompt = f"Suggest 1 simple, low-cost, high-nutrition recipe with {recipe_name} for {region}. Ensure the total cost does not exceed ${budget}. Prioritize cheap ingredients like rice, lentils, and vegetables. Provide: 1. Ingredients with measurements 2. Instructions."
 
     encoded_prompt = urllib.parse.quote(prompt)
     ai_url = f"https://genini-mu.vercel.app/api/gemini-text?text={encoded_prompt}"
@@ -23,9 +23,10 @@ def generate_recipe():
     print(f"Calling AI API with URL: {ai_url}")
 
     try:
-        response = requests.get(ai_url, timeout=10)
+        response = requests.get(ai_url, timeout=30)
         response.raise_for_status()
         data = response.json()
+        print(f"API Response: {response.text}")  # Log raw response for debugging
 
         if data.get('success'):
             result = data.get('result')
@@ -42,9 +43,6 @@ def generate_recipe():
 @app.route('/submit_recipe', methods=['POST'])
 def submit_recipe():
     data = request.get_json()
-    if not data:
-        return jsonify({'error': 'No JSON data received'}), 500
-        
     recipe_name = data.get('recipe_name')
     ingredients = data.get('ingredients')
     instructions = data.get('instructions')
@@ -54,5 +52,5 @@ def submit_recipe():
 
     return jsonify({'message': 'Recipe submitted successfully'}), 200
 
-if __name__ == '__main__':  # Fixed: __name__ and __main__ with double underscores
+if name == 'main':
     app.run(port=5000)
