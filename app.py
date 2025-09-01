@@ -3,9 +3,8 @@ from flask_cors import CORS
 import urllib.parse
 import requests
 
-app = Flask(name)
+app = Flask(__name__)
 CORS(app)
-
 @app.route('/generate_recipe', methods=['GET'])
 def generate_recipe():
     recipe_name = request.args.get('recipe_name')
@@ -22,11 +21,11 @@ def generate_recipe():
 
     print(f"Calling AI API with URL: {ai_url}")
 
+
     try:
-        response = requests.get(ai_url, timeout=30)
+        response = requests.get(ai_url, timeout=10)
         response.raise_for_status()
         data = response.json()
-        print(f"API Response: {response.text}")  # Log raw response for debugging
 
         if data.get('success'):
             result = data.get('result')
@@ -52,5 +51,5 @@ def submit_recipe():
 
     return jsonify({'message': 'Recipe submitted successfully'}), 200
 
-if name == 'main':
+if __name__ == '__main__':
     app.run(port=5000)
