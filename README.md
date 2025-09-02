@@ -57,7 +57,6 @@ Here are the contributors to this project:
 
 © 2025 THE CODERS CAVE  
 
-
 ## 🏆 Judging Criteria Breakdown
 
 ### 1. **Code Quality (20%)** 💻
@@ -72,16 +71,15 @@ Here are the contributors to this project:
 
 ### 3. **Utilization of Technology Stack (14%)** 🌐
 
-* **Frontend:** HTML, CSS, Vanilla JS
-* **Backend:** Node.js + Express
+* **Frontend:** HTML, CSS,  JS
+* **Backend:** python, Mysql
 * **AI:** Hugging Face GPT-2 for recipe descriptions
-* **Payments:** M-Pesa Daraja API (STK Push)
-* **Deployment:** Netlify (frontend) + Render (backend)
+* **Deployment:** Vercel (frontend) + Render (backend)
 
 ### 4. **Security & Fault Tolerance (12%)** 🔒
 
 * API keys stored in `.env` file (never exposed).
-* Error handling for API requests & payments.
+* Error handling for API requests
 * Validation of user inputs to prevent injection attacks.
 
 ### 5. **Performance (16%)** 🚀
@@ -94,13 +92,13 @@ Here are the contributors to this project:
 
 * Used **GitHub Projects** for task tracking.
 * Team collaboration via Git & pull requests.
-* Clear division of roles across all 6 members.
+* Clear division of roles across all 5 members.
 
 ### 7. **Documentation & Testing (8%)** 📖
 
 * Comprehensive **README.md** (this file).
 * Unit & integration tests for search and payment workflows.
-* Manual + automated testing (sandbox M-Pesa + recipe API).
+* Manual + automated testing ( recipe API).
 
 ---
 
@@ -108,7 +106,6 @@ Here are the contributors to this project:
 
 ✅ Recipe Search by ingredient or keyword
 ✅ AI-powered recipe descriptions (Hugging Face GPT-2)
-✅ M-Pesa Payment Integration (Daraja API)
 ✅ Secure & optimized backend
 ✅ Fully responsive UI
 
