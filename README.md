@@ -71,8 +71,9 @@ Here are the contributors to this project:
 
 ### 3. **Utilization of Technology Stack (14%)** 🌐
 
-* **Frontend:** HTML, CSS,  JS
-* **Backend:** python, Mysql
+* **Frontend:** HTML, CSS, JS
+* **Backend:** Python, MySQL
+Python, Mysql
 * **AI:** Hugging Face GPT-2 for recipe descriptions
 * **Deployment:** Vercel (frontend) + Render (backend)
 
