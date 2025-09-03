@@ -150,7 +150,7 @@ Python, Mysql
 
 ## 👨‍⚖️ License
 
-© THE CODERS CAVE – All rights reserved.
+© 2025 THE CODERS CAVE – All rights reserved.
 
 ---
 
